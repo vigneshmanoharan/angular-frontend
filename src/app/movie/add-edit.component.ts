@@ -76,7 +76,7 @@ export class AddEditComponent implements OnInit {
         this.movieService.update(this.id, this.form.value)
             .pipe(first())
             .subscribe(() => {
-                this.alertService.success('Movie Deleted Successfully', { keepAfterRouteChange: true });
+                this.alertService.success('Movie Updated Successfully', { keepAfterRouteChange: true });
                 this.router.navigate(['../../'], { relativeTo: this.route });
             })
             .add(() => this.loading = false);
