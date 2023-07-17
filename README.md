@@ -1,5 +1,8 @@
-# angular-11-crud-example
+Step 1: cd angular-frontend
+Step 2: npm install
+Step 3: npm install -g @angular/cli
+Step 4: ng serve 
 
-Angular 11 - CRUD Example with Reactive Forms
+use the above commands for local setup of frontend application
 
-To see a demo and further details go to https://jasonwatmore.com/post/2020/12/15/angular-11-crud-example-with-reactive-forms
+application will be running at port http://localhost:4200
