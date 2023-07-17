@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
         this.movieService.delete(id)
             .pipe(first())
             .subscribe(() =>{
-                this.alertService.success('Movie updated', { keepAfterRouteChange: true });
+                this.alertService.success('Movie Deleted successfully', { keepAfterRouteChange: true });
                 this.movies = this.movies.filter(x => x.id !== id)
             });
     }
