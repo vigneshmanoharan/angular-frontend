@@ -1,0 +1,51 @@
+﻿<h1 *ngIf="isAddMode">Add Movie</h1>
+<h1 *ngIf="!isAddMode">Edit Movie</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>Movie Name</label>
+            <input type="text" formControlName="movieName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.movieName.errors }" />
+            <div *ngIf="submitted && f.movieName.errors" class="invalid-feedback">
+                <div *ngIf="f.movieName.errors.required">Movie Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Cast</label>
+            <input type="text" formControlName="cast" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cast.errors }" />
+            <div *ngIf="submitted && f.cast.errors" class="invalid-feedback">
+                <div *ngIf="f.cast.errors.required">Cast crew details is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label>Release Date</label>
+            <input type="date" formControlName="releaseDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.releaseDate.errors }" />
+            <div *ngIf="submitted && f.releaseDate.errors" class="invalid-feedback">
+                <div *ngIf="f.releaseDate.errors.required">Release Date is required</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Rating</label>
+            <select formControlName="rating" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.rating.errors }">
+                <option selected>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <div *ngIf="submitted && f.rating.errors" class="invalid-feedback">
+                <div *ngIf="f.rating.errors.required">Rating is required</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/movie" class="btn btn-link">Cancel</a>
+    </div>
+</form>
